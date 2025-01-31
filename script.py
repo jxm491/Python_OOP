@@ -1,13 +1,26 @@
-class Dog:
-  def __init__(self, name, breed):
-      self.name = name
-      self.breed = breed
+# Accessing and Modifying Data:
+# 1. The traditional way: make the data private and use getters and setters:
 
-  def bark(self):
-    print("Woof woof")
+# Name Mangled
 
-dog1 = Dog("Bruce", "Scottish Terrior")
-dog1.bark()
+class User:
+  def __init__(self, username, email, password):
+    self.username = username
+    self._email = email
+    self.password = password
 
-dog2 = Dog("Freya", "Greyhound")
-dog2.bark()
+  def get_email(self):
+     return self._eamil
+
+  def clean_email(self):
+      return self._email.lower().strip()
+
+user1 = User("dantheman", "          Dan@gmail.com", "123")
+user2 = User("batman","bat@outlook.com","abc")
+
+print(user1._email)
+print(user1.clean_email())
+
+# The "Consenting Adults" Philosophy - Developer responsibility, trusted to not
+# access protected members unless absolutely necessary, can still be made private
+# using double underscore
